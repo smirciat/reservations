@@ -1,0 +1,26 @@
+<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarCtrl">
+  <div class="container">
+    <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
+     
+     <div class="row">  
+       <div class="col-md-6">
+         <ul class="nav nav-pills">
+           <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
+               <a ng-href="{{item.link}}">{{item.title}}</a>
+           </li>
+           <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a href="/admin">Admin</a></li>
+         </ul>
+       </div>
+       <div class="col-md-6">
+         <ul class="nav nav-pills pull-right">
+           <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/signup')}"><a href="/signup">Sign up</a></li>
+           <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
+           <li ng-show="isLoggedIn()"><a href="#">    Hello {{ getCurrentUser().name }}    </a> </li>
+           <li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}"><a href="/settings"><div class="glyphicon glyphicon-cog"></div></a></li>
+           <li ng-show="isLoggedIn()"><a href="/logout">Logout</a></li>
+         </ul>
+       </div<
+     </div> 
+    </div>
+  </div>
+</div>
